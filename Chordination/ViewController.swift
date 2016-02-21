@@ -7,12 +7,16 @@
 //
 
 import UIKit
+import AVFoundation
 
 class ViewController: UIViewController {
+    var middleC = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("middleC", ofType: "wav")!)
+    var audioPlayer = AVAudioPlayer()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        audioPlayer = try! AVAudioPlayer(contentsOfURL: middleC)
+        audioPlayer.prepareToPlay()
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,7 +25,7 @@ class ViewController: UIViewController {
     }
 
     @IBAction func playClicked(sender: UIButton) {
-        print("here")
+        audioPlayer.play()
     }
 
 }
