@@ -11,9 +11,10 @@ import Foundation
 class ChordTranslator {
     
     let translationDict: [String: Int] = ["A": 57, "B": 59, "C": 60, "D": 62, "E": 64, "F": 65, "G": 67]
+    let modificationDict: [String: Int] = ["♮": 0, "♭": -1 , "♯": 1]
     
-    func translate(note: String) -> Int
+    func translate(note: String, modifier: String) -> Int
     {
-        return translationDict[note]!
+        return translationDict[note]! + modificationDict[modifier]!
     }
 }
