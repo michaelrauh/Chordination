@@ -12,6 +12,8 @@ class ViewController: UIViewController {
     var soundLoader = SoundLoader()
     var chordTranslator = ChordTranslator()
 
+    @IBOutlet weak var selectedTonic: UISegmentedControl!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -22,7 +24,7 @@ class ViewController: UIViewController {
     }
 
     @IBAction func playClicked(sender: UIButton) {
-        soundLoader.play(chordTranslator.translate("F"))
+        soundLoader.play(chordTranslator.translate(selectedTonic.titleForSegmentAtIndex(selectedTonic.selectedSegmentIndex)!))
     }
 
 }
