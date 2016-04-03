@@ -10,10 +10,10 @@ import UIKit
 
 class ViewController: UIViewController {
     var soundLoader = SoundLoader()
+    var chordTranslator = ChordTranslator()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
 
     override func didReceiveMemoryWarning() {
@@ -22,7 +22,7 @@ class ViewController: UIViewController {
     }
 
     @IBAction func playClicked(sender: UIButton) {
-        soundLoader.play()
+        soundLoader.play(chordTranslator.translate("F"))
     }
 
 }

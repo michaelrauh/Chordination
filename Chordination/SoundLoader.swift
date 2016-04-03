@@ -25,9 +25,9 @@ class SoundLoader {
         }
     }
     
-    func play() {
-        sounds[78]!.prepareToPlay()
-        sounds[78]!.play()
+    func play(index: Int) {
+        sounds[index]!.prepareToPlay()
+        sounds[index]!.play()
     }
     
     
