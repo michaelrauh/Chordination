@@ -7,16 +7,13 @@
 //
 
 import UIKit
-import AVFoundation
 
 class ViewController: UIViewController {
-    var middleC = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("../sounds/45", ofType: "wav")!)
-    var audioPlayer = AVAudioPlayer()
+    var soundLoader = SoundLoader()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        audioPlayer = try! AVAudioPlayer(contentsOfURL: middleC)
-        audioPlayer.prepareToPlay()
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -25,7 +22,7 @@ class ViewController: UIViewController {
     }
 
     @IBAction func playClicked(sender: UIButton) {
-        audioPlayer.play()
+        soundLoader.play()
     }
 
 }
