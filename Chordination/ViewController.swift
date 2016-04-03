@@ -10,7 +10,7 @@ import UIKit
 import AVFoundation
 
 class ViewController: UIViewController {
-    var middleC = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("middleC", ofType: "wav")!)
+    var middleC = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("../sounds/45", ofType: "wav")!)
     var audioPlayer = AVAudioPlayer()
 
     override func viewDidLoad() {
