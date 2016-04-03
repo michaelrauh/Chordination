@@ -11,13 +11,9 @@ import AVFoundation
 
 class SoundLoader {
     
-    var sound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("../sounds/45", ofType: "wav")!)
-    var audioPlayer = AVAudioPlayer()
     var sounds = [Int: AVAudioPlayer]()
     
     init () {
-        audioPlayer = try! AVAudioPlayer(contentsOfURL: sound)
-        audioPlayer.prepareToPlay()
         load()
     }
     
@@ -30,7 +26,8 @@ class SoundLoader {
     }
     
     func play() {
-        sounds[66]!.play()
+        sounds[78]!.prepareToPlay()
+        sounds[78]!.play()
     }
     
     
