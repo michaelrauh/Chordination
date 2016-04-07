@@ -27,8 +27,9 @@ class ViewController: UIViewController {
     @IBAction func playClicked(sender: UIButton) {
         let selectedIndex = selectedTonic.titleForSegmentAtIndex(selectedTonic.selectedSegmentIndex)!
         let indexModifier = selectedModifier.titleForSegmentAtIndex(selectedModifier.selectedSegmentIndex)!
+        let desiredSound = chordTranslator.translate(selectedIndex, modifier: indexModifier)
         
-        soundLoader.play(chordTranslator.translate(selectedIndex, modifier: indexModifier))
+        soundLoader.play(desiredSound)
     }
 
 }
