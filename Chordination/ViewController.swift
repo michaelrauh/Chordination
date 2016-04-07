@@ -25,11 +25,26 @@ class ViewController: UIViewController {
     }
 
     @IBAction func playClicked(sender: UIButton) {
-        let selectedIndex = selectedTonic.titleForSegmentAtIndex(selectedTonic.selectedSegmentIndex)!
-        let indexModifier = selectedModifier.titleForSegmentAtIndex(selectedModifier.selectedSegmentIndex)!
-        let desiredSound = chordTranslator.translate(selectedIndex, modifier: indexModifier)
+        let desiredSound = getDesiredSound()
         
         soundLoader.play(desiredSound)
+    }
+    @IBAction func tonicChanged(sender: UISegmentedControl) {
+        updateView()
+    }
+    
+    @IBAction func modifierChanged(sender: UISegmentedControl) {
+        updateView()
+    }
+    func getDesiredSound() -> Int {
+        let selectedIndex = selectedTonic.titleForSegmentAtIndex(selectedTonic.selectedSegmentIndex)!
+        let indexModifier = selectedModifier.titleForSegmentAtIndex(selectedModifier.selectedSegmentIndex)!
+        
+        return chordTranslator.translate(selectedIndex, modifier: indexModifier)
+    }
+    
+    func updateView(){
+        print(getDesiredSound())
     }
 
 }
